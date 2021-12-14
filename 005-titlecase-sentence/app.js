@@ -20,13 +20,30 @@
 // }
 
 // Intermediate solution
+// function titleCase(str) {
+//   let convertToArray = str.toLowerCase().split(" ");
+//   let result = convertToArray.map((val) => {
+//     return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+//   });
+//   return result.join(" ");
+// }
+
+// Advanced solution
+// function titleCase(str) {
+//   return str.toLowerCase().replace(/(^|\s)\S/g, (L) => L.toUpperCase());
+// }
+
+// Advanced solution 2
 function titleCase(str) {
-  let convertToArray = str.toLowerCase().split(" ");
-  let result = convertToArray.map((val) => {
-    return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
-  });
-  console.log(result);
-  return result.join(" ");
+  str = str.split(" ");
+
+  for (let i = 0; i < str.length; i++) {
+    str[i] = str[i].toLowerCase().split("");
+    str[i][0] = str[i][0].toUpperCase();
+    str[i] = str[i].join("");
+  }
+
+  return str.join(" ");
 }
 
 console.log(titleCase("I'm a little tea pot"));
