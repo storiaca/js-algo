@@ -14,6 +14,15 @@ function truncateString(str, num) {
   }
 }
 
+// Advanced Solution
+
+function truncateString(str, num) {
+  if (str.length > num) {
+    return str.slice(0, num > 3 ? num - 3 : num) + "...";
+  }
+  return str;
+}
+
 console.log(truncateString("Orange", 1));
 console.log(truncateString("Orange", 3));
 console.log(truncateString("Orange", 9));
